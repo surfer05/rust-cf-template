@@ -29,14 +29,13 @@ To avoid typing the full repository URL every time, you can create a short alias
 ### Step 3: Generate a New Problem Folder
 
 Navigate to your workspace and run the following command to create a folder for your new problem:
-
+   
 ```bash
-cargo generate cf --name problem-A --vcs none
+ cargo generate cf --name problem-A --vcs none
 ```
 
 > **Why use `--vcs none`?** 
-> This flag tells `cargo-generate` **not** to initialize a new Git repository inside your problem folder. This is ideal if you plan to manage all your solutions within a single, larger Git repository.
-
+> This flag tells `cargo-generate` **not** to initialize a new Git repository inside your problem folder. 
 ### Step 4: Solve and Run
 
 1.  Navigate into the new directory: `cd problem-A`
@@ -48,7 +47,3 @@ cargo generate cf --name problem-A --vcs none
     ```
 5.  Your program's output will appear in the `output.txt` file.
 
----
-### Customizing the Template (Using a Fork)
-
-If you want to modify this template for your own needs, you can **fork this repository**. After creating your fork, simply update the Git URL in your local `~/.cargo/cargo-generate.toml` file to point to your forked repository address.
