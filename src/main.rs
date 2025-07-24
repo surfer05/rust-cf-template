@@ -9,10 +9,17 @@ fn main() {
     let stdin = io::stdin();
     let mut reader = stdin.lock();
 
-    // ---- Output Setup ----
-    // Creates/truncates output.txt and sets up a buffered writer
-    let output_file = File::create("output.txt").unwrap();
-    let mut writer = BufWriter::new(output_file);
+    #[cfg(feature = "local-run")]
+    let mut writer = {
+        let output_file = File::create("output.txt").unwrap();
+        BufWriter::new(output_file)
+    };
+
+    #[cfg(not(feature = "local-run"))]
+    let mut writer = {
+        let stdout = io::stdout();
+        BufWriter::new(stdout.lock())
+    };
 
     // Read the number of test cases
     let mut line = String::new();
@@ -28,5 +35,4 @@ fn main() {
 /// This is where you write the solution for a single test case.
 fn solve(reader: &mut impl BufRead, writer: &mut impl Write) {
     // TODO: Write your solution logic for the problem here.
-    
 }

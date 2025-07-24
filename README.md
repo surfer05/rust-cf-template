@@ -36,14 +36,14 @@ Navigate to your workspace and run the following command to create a folder for 
 
 > **Why use `--vcs none`?** 
 > This flag tells `cargo-generate` **not** to initialize a new Git repository inside your problem folder. 
+
 ### Step 4: Solve and Run
 
 1.  Navigate into the new directory: `cd problem-A`
 2.  Paste the problem's input into `input.txt`.
 3.  Write your solution logic inside the `solve()` function in `src/main.rs`.
-4.  Run your code from the terminal:
+4.  **Run your code locally** with this command:
     ```bash
-    cargo run --release < input.txt
+    cargo run --release --features local-run < input.txt
     ```
-5.  Your program's output will appear in the `output.txt` file.
-
+5.  Check your result in the `output.txt` file. When you submit to an online judge, simply copy the code from `src/main.rs`; it will automatically work correctly.
